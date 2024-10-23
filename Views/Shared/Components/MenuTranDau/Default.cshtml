@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Trandau>
+
+<div class="new_arrivals_sorting">
+    <ul class="arrivals_grid_sorting button-group filters-button-group d-flex flex-wrap">
+        @foreach (var item in Model)
+        {@* 
+            <li class="m-2">
+                <a asp-action="TrongtaiByTranDauId" asp-controller="" asp-route-tranDauId ="@item.TranDauId" class="btn btn-primary">
+                    @item.TranDauId 
+                </a>
+            </li> *@
+
+            <li id="@item.TranDauId" class="m-2">
+                <a  class="btn btn-primary">
+                    @item.TranDauId
+                </a>
+            </li>
+        }
+    </ul>
+</div>
+
+<script>
+    $("li").click(function (e) {
+        var id = $.trim($(this).attr("id"));
+        $.ajax({
+            url: "/Home/LoadTrongtaiByTranDauId", // Đảm bảo đường dẫn đúng
+            data: { tranDauId: id },
+            success: function (response) {
+                console.log(response); // Kiểm tra nội dung phản hồi
+                $("div.content").html(response); // Cập nhật nội dung
+            },
+            error: function (xhr, status, error) {
+                console.error("Error occurred: " + error); // Xử lý lỗi
+            }
+        });
+    });
+</script>
+
+
+
+
+
+

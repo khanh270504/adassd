@@ -1,0 +1,17 @@
+﻿@model Trongtai
+
+<div class="product-item men">
+	<div class="product discount product_filter">
+		<div class="product_image">
+			<img src="@Url.Content("~/images/" + Model.Anh)" alt="">
+		</div>
+		<div class="favorite favorite_left"></div>
+		<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>@Url.Content(Model.QueHuong)</span></div>
+		<div class="product_info">
+			<h6 class="product_name"><a href="single.html">@Url.Content(Model.HoVaTen)</a></h6>
+			<div class="product_price">@Url.Content(Model.QuocTich)</div>
+		</div>
+	</div>
+	<div class="red_button add_to_cart_button"> <a href="@Url.Action("Edit", "Home", new { trongtaiId = Model.TrongTaiId })">Sửa thông tin</a></div>
+</div>
+

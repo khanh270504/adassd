@@ -1,0 +1,18 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+}
+@model List<Trongtai>
+<div class="row">
+	<div class="col">
+		<div class="product-grid" data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
+
+			<!-- Product 1 -->
+			@foreach(var item in Model)
+			{
+				@await Html.PartialAsync("PartialTrongTai", item)
+			}
+			
+
+		</div>
+	</div>
+</div>
